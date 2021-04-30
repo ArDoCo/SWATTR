@@ -1,5 +1,5 @@
-# SWATTR
-SoftWare Architecture Text Tracelink Recovery
+# SoftWare Architecture Text Tracelink Recovery (SWATTR)
+[![DOI](https://zenodo.org/badge/359732572.svg)](https://zenodo.org/badge/latestdoi/359732572)
 
 ## Structure
 The current structure of this repository is currently as follows:
