@@ -1,0 +1,4 @@
+file; precision; recall; f1
+results_Core/teammates/TM_Links_Sim_050.csv; 0.182370820668693; 0.75; 0.2933985330073349
+results_Core/teammates/TM_Links_Sim_075.csv; 0.6826923076923077; 0.8875; 0.7717391304347826
+results_Core/teammates/TM_Links_Sim_100.csv; 0.4873417721518987; 0.9625; 0.6470588235294117

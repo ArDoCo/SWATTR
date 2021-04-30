@@ -1,0 +1,25 @@
+TeaStore 100
+---------------------------------------------------------
+Remaining in Gold Standard - False Negatives: 
+---------------------------------------------------------
+WebUI,8
+Persistence,26
+SlopeOneRecommender,32
+---------------------------------------------------------
+---------------------------------------------------------
+Additional in Result - False Positives: 
+---------------------------------------------------------
+[image, images, Images, Image, ImageProvider],11
+[image, images, Images, Image, ImageProvider],13
+[image, images, Images, Image, ImageProvider],14
+[image, images, Images, Image, ImageProvider],15
+[image, images, Images, Image, ImageProvider],16
+[image, images, Images, Image, ImageProvider],17
+[Persistence, PersistenceProvider, persistence, persisted, persistent],24
+[Recommendations, Recommender, recommendation, recommendations],29
+[Recommendations, Recommender, recommendation, recommendations],32
+[Recommendations, Recommender, recommendation, recommendations],36
+[registry, registered, Registry, re-registering, register],9
+[registry, registered, Registry, re-registering, register],39
+[registry, registered, Registry, re-registering, register],40
+---------------------------------------------------------

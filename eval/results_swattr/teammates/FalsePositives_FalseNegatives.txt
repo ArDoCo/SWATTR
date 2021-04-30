@@ -1,0 +1,52 @@
+Teammates 75
+---------------------------------------------------------
+Remaining in Gold Standard - False Negatives: 
+---------------------------------------------------------
+Test Driver,1,
+Test Driver,10,
+Logic,78,
+Storage,119,
+Storage,120,
+Test Driver,163,
+Test Driver,169,
+Test Driver,170,
+Test Driver,171,
+---------------------------------------------------------
+---------------------------------------------------------
+Additional in Result - False Positives: 
+---------------------------------------------------------
+[logic.api, x.logic, logic.core, logic, Logic, CompileLogsAction],66
+[logic.api, x.logic, logic.core, logic, Logic, CompileLogsAction],79
+[logic.api, x.logic, logic.core, logic, Logic, CompileLogsAction],117
+[logic.api, x.logic, logic.core, logic, Logic, CompileLogsAction],119
+[logic.api, x.logic, logic.core, logic, Logic, CompileLogsAction],172
+[storage.search, Storage, storage.entity, storage, storage.api, x.storage],9
+[storage.search, Storage, storage.entity, storage, storage.api, x.storage],132
+[storage.search, Storage, storage.entity, storage, storage.api, x.storage],172
+[e2e.cases, x.e2e, E2E, e2e.pageobjects, e2e.util],16
+[e2e.cases, x.e2e, E2E, e2e.pageobjects, e2e.util],17
+[e2e.cases, x.e2e, E2E, e2e.pageobjects, e2e.util],186
+[e2e.cases, x.e2e, E2E, e2e.pageobjects, e2e.util],192
+[client.util, sufficient, client, client.scripts, Client, client-side, client.remoteapi],4
+[client.util, sufficient, client, client.scripts, Client, client-side, client.remoteapi],55
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],29
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],32
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],158
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],2
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],31
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],35
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],58
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],62
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],69
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],73
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],74
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],87
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],89
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],94
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],97
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],134
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],139
+[stop, Datastore, datastore, custom, GateKeeper, GAE, GAE-invoked, navigability],144
+[common.datatransfer, common.util, common, common.exceptions, Common],49
+---------------------------------------------------------
+

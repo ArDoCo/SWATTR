@@ -1,0 +1,5 @@
+* Removed links (in case of "`http://$host$:$port$/tools.descartes.teastore.webui/status`": change to "link") to remain the phrase.
+* Removed section titles
+* Removed Markdown commands, like ** **
+* Removed Enumeration signs
+* Change ":" to a "." (S.32-33)

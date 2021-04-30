@@ -1,0 +1,16 @@
+Found Model Elements in TeaStore:,,
+
+UID,Name,Type
+_3fZZMJUWEeqcD4b2aEjF3w,Auth,BasicComponent
+_0ntBwMTWEeqPMY5aZpc07Q,SlopeOneRecommender,BasicComponent
+_WyPiwJ5nEeqPL_FOqZk_Cw,DummyRecommender,BasicComponent
+_2nQesMTWEeqPMY5aZpc07Q,OrderBasedRecommender,BasicComponent
+_Kjt-sJUXEeqcD4b2aEjF3w,Recommender,BasicComponent
+_ZfYFsJUXEeqcD4b2aEjF3w,Persistence,BasicComponent
+_lA4vAJuDEeqFLuz8hc-8Wg,Image,BasicComponent
+_QEKhMJ5nEeqPL_FOqZk_Cw,PopularityBasedRecommender,BasicComponent
+_a3CcMJUXEeqcD4b2aEjF3w,Registry,BasicComponent
+_XNvwMKYAEeqC3-V9QgFJyg,RegistryClient,BasicComponent
+_CkKuMJUXEeqcD4b2aEjF3w,WebUI,BasicComponent
+_K8BTQJXCEeqTkvVy2rVPEA,Entities,BasicComponent
+_i8PMsJ5iEeqVvaP6_mXfwA,AuthSecurity,BasicComponent

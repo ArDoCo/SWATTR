@@ -1,0 +1,36 @@
+Mediastore 100
+---------------------------------------------------------
+Remaining in Gold Standard - False Negatives: 
+---------------------------------------------------------
+MediaManagement,9
+TagWatermarking,16
+TagWatermarking,17
+Reencoding,20
+DB,23
+DB,24
+DB,25
+MediaAccess,28
+DB,31
+DB,32
+---------------------------------------------------------
+---------------------------------------------------------
+Additional in Result - False Positives: 
+---------------------------------------------------------
+[management, UserManagement, MediaManagement],1
+[management, UserManagement, MediaManagement],7
+[management, UserManagement, MediaManagement],8
+[management, UserManagement, MediaManagement],17
+[access, Media, MediaAccess, MediaManagement],29
+[access, Media, MediaAccess, MediaManagement],1
+[access, Media, MediaAccess, MediaManagement],7
+[access, Media, MediaAccess, MediaManagement],8
+[access, Media, MediaAccess, MediaManagement],13
+[access, Media, MediaAccess, MediaManagement],17
+[management, UserManagement, Media, MediaAccess, MediaManagement],1
+[management, UserManagement, Media, MediaAccess, MediaManagement],11
+[management, UserManagement, Media, MediaAccess, MediaManagement],13
+[management, UserManagement, Media, MediaAccess, MediaManagement],26
+[management, UserManagement, Media, MediaAccess, MediaManagement],27
+[management, UserManagement, Media, MediaAccess, MediaManagement],34
+[re-encoding],37
+---------------------------------------------------------

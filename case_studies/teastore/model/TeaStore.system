@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" id="_6fu3kKWGEeqILtqDMNbBkw" entityName="TeaStoreSystem">
+  <assemblyContexts__ComposedStructure id="_6ydJ0KWHEeqILtqDMNbBkw" entityName="Assembly_WebUI &lt;WebUI>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_CkKuMJUXEeqcD4b2aEjF3w"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_BIoowKWIEeqILtqDMNbBkw" entityName="Assembly_Auth &lt;Auth>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_3fZZMJUWEeqcD4b2aEjF3w"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_IAi7wKWIEeqILtqDMNbBkw" entityName="Assembly_Recommender &lt;Recommender>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_Kjt-sJUXEeqcD4b2aEjF3w"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_L96wQKWIEeqILtqDMNbBkw" entityName="Assembly_Registry &lt;Registry>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_a3CcMJUXEeqcD4b2aEjF3w"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_cMl_gKWiEeqILtqDMNbBkw" entityName="Assembly_DummyRecommender &lt;DummyRecommender>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_WyPiwJ5nEeqPL_FOqZk_Cw"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_VHPsQKWIEeqILtqDMNbBkw" entityName="Assembly_Image &lt;Image>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_lA4vAJuDEeqFLuz8hc-8Wg"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_AuoCUKYBEeqC3-V9QgFJyg" entityName="Assembly_RegistryClient &lt;RegistryClient>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_XNvwMKYAEeqC3-V9QgFJyg"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_kwcOsKWIEeqILtqDMNbBkw" entityName="Assembly_AuthSecurity &lt;AuthSecurity>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_i8PMsJ5iEeqVvaP6_mXfwA"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_XkXQIKWiEeqILtqDMNbBkw" entityName="Assembly_Entities &lt;Entities>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_K8BTQJXCEeqTkvVy2rVPEA"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_6HtYsKYAEeqC3-V9QgFJyg" entityName="Assembly_Persistence &lt;Persistence>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="TeaStore.repository#_ZfYFsJUXEeqcD4b2aEjF3w"/>
+  </assemblyContexts__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_7yXzEKWlEeqILtqDMNbBkw" entityName="Connector Assembly_Registry &lt;Registry> -> Assembly_HeartbeatInfo &lt;HeartbeatInfo>" requiringAssemblyContext_AssemblyConnector="_L96wQKWIEeqILtqDMNbBkw">
+    <providedRole_AssemblyConnector href="TeaStore.repository#_5FLNgJXBEeqTkvVy2rVPEA"/>
+    <requiredRole_AssemblyConnector href="TeaStore.repository#_5yYRwJXBEeqTkvVy2rVPEA"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_B4O-EKWmEeqILtqDMNbBkw" entityName="Connector Assembly_Recommender &lt;Recommender> -> Assembly_DummyRecommender &lt;DummyRecommender>" requiringAssemblyContext_AssemblyConnector="_IAi7wKWIEeqILtqDMNbBkw" providingAssemblyContext_AssemblyConnector="_cMl_gKWiEeqILtqDMNbBkw">
+    <providedRole_AssemblyConnector href="TeaStore.repository#_8bPdAJ5qEeqPL_FOqZk_Cw"/>
+    <requiredRole_AssemblyConnector href="TeaStore.repository#_Q_cdoJVnEeqt3Lcd-vOlLQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_aYHVEKXtEeqC3-V9QgFJyg" entityName="ProvDelegation Provided_IServlet -> Provided_IServlet_WebUI" outerProvidedRole_ProvidedDelegationConnector="_-u1r8KXsEeqC3-V9QgFJyg" assemblyContext_ProvidedDelegationConnector="_6ydJ0KWHEeqILtqDMNbBkw">
+    <innerProvidedRole_ProvidedDelegationConnector href="TeaStore.repository#_ZvB8kJVqEeqt3Lcd-vOlLQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_cUneAKXtEeqC3-V9QgFJyg" entityName="ProvDelegation Provided_CartActions -> Provided_CartActions_WebUI" assemblyContext_ProvidedDelegationConnector="_6ydJ0KWHEeqILtqDMNbBkw">
+    <innerProvidedRole_ProvidedDelegationConnector href="TeaStore.repository#_apEi8JVqEeqt3Lcd-vOlLQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_Ll9_UKYBEeqC3-V9QgFJyg" entityName="Connector Assembly_Persistence &lt;Persistence> -> Assembly_RegistryClient &lt;RegistryClient>" requiringAssemblyContext_AssemblyConnector="_6HtYsKYAEeqC3-V9QgFJyg" providingAssemblyContext_AssemblyConnector="_AuoCUKYBEeqC3-V9QgFJyg">
+    <providedRole_AssemblyConnector href="TeaStore.repository#_wNo8QKYAEeqC3-V9QgFJyg"/>
+    <requiredRole_AssemblyConnector href="TeaStore.repository#_xEo1sKYAEeqC3-V9QgFJyg"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_M2igEMqEEeqFSeRaNnNMTw" entityName="ProvDelegation Provided_IServlet -> Provided_IServlet_WebUI" outerProvidedRole_ProvidedDelegationConnector="_-u1r8KXsEeqC3-V9QgFJyg" assemblyContext_ProvidedDelegationConnector="_6ydJ0KWHEeqILtqDMNbBkw">
+    <innerProvidedRole_ProvidedDelegationConnector href="TeaStore.repository#_bkdU0MTYEeqfXN1KOWMZ9g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_-E4NIMqEEeqFSeRaNnNMTw" entityName="Connector Assembly_WebUI &lt;WebUI> -> Assembly_RegistryClient &lt;RegistryClient>" requiringAssemblyContext_AssemblyConnector="_6ydJ0KWHEeqILtqDMNbBkw" providingAssemblyContext_AssemblyConnector="_AuoCUKYBEeqC3-V9QgFJyg">
+    <providedRole_AssemblyConnector href="TeaStore.repository#_QxrGsMTjEeqfXN1KOWMZ9g"/>
+    <requiredRole_AssemblyConnector href="TeaStore.repository#_FP7YMMp9Eeq4scN_z_wX4Q"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="__tvBUMqEEeqFSeRaNnNMTw" entityName="Connector Assembly_Auth &lt;Auth> -> Assembly_RegistryClient &lt;RegistryClient>" requiringAssemblyContext_AssemblyConnector="_BIoowKWIEeqILtqDMNbBkw" providingAssemblyContext_AssemblyConnector="_AuoCUKYBEeqC3-V9QgFJyg">
+    <providedRole_AssemblyConnector href="TeaStore.repository#_QxrGsMTjEeqfXN1KOWMZ9g"/>
+    <requiredRole_AssemblyConnector href="TeaStore.repository#_vB4osMp8Eeq4scN_z_wX4Q"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_pXydkMqFEeqFSeRaNnNMTw" entityName="Connector Assembly_Recommender &lt;Recommender> -> Assembly_DummyRecommender &lt;DummyRecommender>" requiringAssemblyContext_AssemblyConnector="_IAi7wKWIEeqILtqDMNbBkw" providingAssemblyContext_AssemblyConnector="_cMl_gKWiEeqILtqDMNbBkw">
+    <providedRole_AssemblyConnector href="TeaStore.repository#_Hteu0Mp0Eeqqu9BGnL7gRQ"/>
+    <requiredRole_AssemblyConnector href="TeaStore.repository#_lRfmUMp0Eeq4scN_z_wX4Q"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_wyxocMqFEeqFSeRaNnNMTw" entityName="Connector Assembly_Auth &lt;Auth> -> Assembly_AuthSecurity &lt;AuthSecurity>" requiringAssemblyContext_AssemblyConnector="_BIoowKWIEeqILtqDMNbBkw" providingAssemblyContext_AssemblyConnector="_kwcOsKWIEeqILtqDMNbBkw">
+    <providedRole_AssemblyConnector href="TeaStore.repository#_kjhTkJ5iEeqVvaP6_mXfwA"/>
+    <requiredRole_AssemblyConnector href="TeaStore.repository#_rZ4nQMp8Eeq4scN_z_wX4Q"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_xixiAMqFEeqFSeRaNnNMTw" entityName="Connector Assembly_Auth &lt;Auth> -> Assembly_AuthSecurity &lt;AuthSecurity>" requiringAssemblyContext_AssemblyConnector="_BIoowKWIEeqILtqDMNbBkw" providingAssemblyContext_AssemblyConnector="_kwcOsKWIEeqILtqDMNbBkw">
+    <providedRole_AssemblyConnector href="TeaStore.repository#_lG2qIJ5iEeqVvaP6_mXfwA"/>
+    <requiredRole_AssemblyConnector href="TeaStore.repository#_ovbzMMp8Eeq4scN_z_wX4Q"/>
+  </connectors__ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_-u1r8KXsEeqC3-V9QgFJyg" entityName="Provided_IServlet">
+    <providedInterface__OperationProvidedRole href="TeaStore.repository#_mOXAgJVpEeqt3Lcd-vOlLQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+</system:System>

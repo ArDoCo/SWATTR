@@ -1,0 +1,4 @@
+file; precision; recall; f1
+results_Core/teaStore/TS_Links_Sim_050.csv; 0.4444444444444444; 0.64; 0.5245901639344263
+results_Core/teaStore/TS_Links_Sim_075.csv; 0.6129032258064516; 0.76; 0.6785714285714285
+results_Core/teaStore/TS_Links_Sim_100.csv; 0.6285714285714286; 0.88; 0.7333333333333334

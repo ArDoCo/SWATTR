@@ -1,0 +1,22 @@
+False Negatives: ;TeaStore;;MediaStore;;Teammates;;;;
+;;;;;;;;;
+coreference;1;;2;;3;;;;
+Alternative form/ Shortform of term not recognized;1;;1;;0;;;;
+>alternative term not recognized, more used in other meanings;1;;1;;0;;;;
+> no trace link found;0;;7;(e.g. DB - Database);6;(e.g. Test Driver);;0,565217391;Failure Frequency
+;;;;;;;;;
+SUM;3;;11;;9;;;;
+;;;;;;;;;
+False Positives:;;;;;;;;;
+;;;;;;;;;
+general term as shortform recognized;6;(e.g. Image - image, images);0;;4;(e.g.client-side(1),  GAE);;;
+adjective/ verbs/ adverbs in combination with false type;4;(e.g. Persistence - persistet entities);4;(e.g. MediaAccess - Media [Store]);11;(e.g. GAE server/ GAE-invoked);;;
+generic terms very similar;3;(e.g. Recommender - recommendations);1;;5;(esp. Logic/common);;;
+multiple names of model elements clustered together;0;;11;(e.g. MediaAccess, MediaManagement, UserManagement);0;;;;
+simple false term recognized;0;;0;;8;(e.g. sufficient [Client] (1), stop/custom [GAE]);;;
+similar package name;0;;0;;4;;;;
+;;;;;;;;;
+SUM;13;;16;;32;;;;
+;;;;;;;;;
+;0,461538462;general term;0,6875;clustered names of model elements;0,46875;differentiation similar terms;;;
+;;;;;0,25;simple false term;;;

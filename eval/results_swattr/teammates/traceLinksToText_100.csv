@@ -1,0 +1,596 @@
+
+ | 
+
+1 | Architecture | contains | UI | Component | Logic | Component | Storage | Component | Common | Component | Test | Driver | Component | E2E | Component | Client | Component | 
+ | 0 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 
+
+2 | TEAMMATES | is | a | Web | application | that | runs | on | Google | App | Engine | GAE | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+3 | Given | above | is | an | overview | of | the | main | components | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+4 | The | UI | Browser | seen | by | users | consists | of | Web | pages | containing | HTML | CSS | for | styling | and | JavaScript | for | client-side | interactions | such | as | sorting | input | validation | etc. | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+5 | This | UI | is | a | single | HTML | page | generated | by | Angular | framework | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+6 | The | initial | page | request | is | sent | to | the | server | over | HTTP | and | requests | for | data | are | sent | asynchronously | with | AJAX | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 
+
+7 | In | the | UI | Server | the | entry | point | for | the | application | back | end | logic | is | designed | as | a | REST-ful | controller | 
+ | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+8 | The | main | logic | of | the | application | is | in | POJOs | Plain | Old | Java | Objects | 
+ | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+9 | The | storage | layer | of | the | application | uses | the | persistence | framework | provided | by | GAE | Datastore | a | NoSQL | database | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 
+
+10 | The | following | explains | the | use | of | the | Test | Driver | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 
+
+11 | TEAMMATES | makes | heavy | use | of | automated | regression | testing | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+12 | Test | data | is | transmitted | using | JSON | format | 
+ | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 
+
+13 | TestNG | is | used | for | Java | testing | -LRB- | all | levels | -RRB- | and | Jest | for | JavaScript | unit-testing | 
+ | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 
+
+14 | HttpUnit | is | used | to | set | up | a | simulated | web | server | in | servlet-level | tests | where | an | actual | web | server | is | not | required | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+15 | The | E2E | end-to-end | component | is | used | to | interact | with | the | application | as | a | whole | with | Web | browsers | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+16 | Its | primary | function | is | for | E2E | tests | 
+ | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 
+
+17 | Selenium | Java | is | used | to | automate | E2E | testing | with | actual | Web | browsers | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 
+
+18 | The | Client | component | can | connect | to | the | back | end | directly | without | using | a | Web | browser | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+19 | It | is | used | for | administrative | purposes | e.g. | migrating | data | to | a | new | schema | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 
+
+20 | The | Common | component | contains | utility | code | -LRB- | data | transfer | objects | helper | classes | etc. | -RRB- | used | across | the | application | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+21 | The | diagram | below | shows | how | the | code | in | each | component | is | organized | into | packages | and | the | dependencies | between | them | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+22 | logic | ui.website | ui.controller | represent | an | application | of | Model-View-Controller | pattern | 
+ | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+23 | ui.website | is | not | a | real | package | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 
+
+24 | It | is | a | conceptual | package | representing | the | front-end | of | the | application | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+25 | The | diagram | below | shows | the | object | structure | of | the | UI | component | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+26 | ui.website | is | not | a | Java | package | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 
+
+27 | It | is | written | in | Angular | framework | and | consists | of | HTML | SCSS | and | TypeScript | files | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+28 | The | framework | will | build | those | files | into | HTML | CSS | and | JavaScript | files | ready | to | be | used | by | standard | Web | browsers | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+29 | The | UI | component | is | the | first | stop | for | 99 | of | all | requests | that | are | received | by | the | application | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+30 | Such | a | request | will | go | through | the | following | steps | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+31 | First | request | received | by | the | GAE | server | 
+ | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+32 | Second | custom | filters | are | applied | according | to | the | order | specified | in | web.xml | e.g. | OriginCheckFilter | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+33 | Third | request | forwarded | to | a | Servlet | object | as | specified | in | web.xml | for | further | processing | depending | on | the | type | of | request | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+34 | There | are | two | general | types | of | requests | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+35 | The | user-invoked | requests | and | the | automated | -LRB- | GAE | server-invoked | -RRB- | requests | which | are | processed | differently | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+36 | User-invoked | requests | are | all | requests | made | by | the | users | of | the | application | typically | from | the | Web | browser | -LRB- | i.e. | by | navigating | to | a | particular | URL | of | the | application | -RRB- | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+37 | The | request | will | be | processed | as | in | the | image | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+38 | The | initial | request | for | the | web | page | will | be | processed | as | follows | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+39 | First | request | forwarded | to | WebPageServlet | 
+ | 0 | 0 | 0 | 0 | 0 | 
+
+40 | Second | WebPageServlet | returns | the | built | single | web | page | -LRB- | index.html | -RRB- | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+41 | Third | the | browser | will | render | the | page | and | execute | the | page | scripts | most | of | the | time | requiring | AJAX | requests | to | the | server | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+42 | Subsequent | AJAX | requests | sent | to | the | server | will | be | processed | as | follows | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+43 | First | request | forwarded | to | the | WebApiServlet | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+44 | Second | WebApiServlet | uses | the | ActionFactory | to | generate | the | matching | Action | object | e.g. | InstructorHomePageAction | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+45 | Third | WebApiServlet | executes | the | action | 
+ | 0 | 0 | 0 | 0 | 0 | 
+
+46 | Fourth | the | Action | object | checks | the | access | rights | of | the | user | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+47 | If | the | action | is | allowed | it | will | be | performed | interacting | with | the | Logic | component | as | necessary | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 
+
+48 | Fifth | the | Action | packages | and | processes | the | result | into | an | ActionResult | object | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+49 | The | most | common | format | is | JsonResult | -LRB- | requests | for | obtaining | data | or | processing | existing | data | -RRB- | and | other | formats | are | defined | as | necessary | e.g. | FileDownloadResult | -LRB- | e.g. | downloading | feedback | session | report | -RRB- | and | ImageResult | -LRB- | e.g. | profile | pictures | -RRB- | 
+ | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+50 | Sixth | WebApiServlet | sends | the | result | back | to | the | browser | which | will | then | process | it | on | the | front-end | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+51 | Requests | for | static | asset | files | -LRB- | e.g. | CSS | JS | files | images | -RRB- | are | served | directly | without | going | through | web.xml | configuration | at | all | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+52 | The | Web | API | is | protected | by | two | layers | of | access | control | check | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+53 | These | are | origin | check | authentication | and | authorization | check | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+54 | Origin | check | mitigates | CSRF | attack | 
+ | 0 | 0 | 0 | 0 | 0 | 
+
+55 | Authentication | and | authorization | check | checks | if | the | logged | in | user | -LRB- | or | lack | thereof | -RRB- | has | sufficient | privileges | to | trigger | the | API | 's | actions | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+56 | Special | keys | -LRB- | csrf | key | and | backdoor | key | -RRB- | can | be | used | to | bypass | each | of | the | checks | typically | for | testing | purpose | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+57 | Those | keys | are | strings | known | only | to | the | person | who | deployed | the | application | -LRB- | typically | the | administrator | -RRB- | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+58 | Automated | requests | are | all | requests | sent | automatically | by | the | GAE | server | during | specific | periods | of | time | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+59 | This | type | of | request | will | be | processed | as | follows | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+60 | First | the | source | of | the | request | will | be | checked | for | administrator | privilege | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+61 | If | this | privilege | is | absent | -LRB- | e.g. | non-administrator | users | trying | to | invoke | the | automated | actions | -RRB- | the | request | will | be | dropped | and | a | 403 | Forbidden | status | will | be | returned | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+62 | Second | requests | generated | by | the | GAE | server | are | equipped | with | this | privilege | 
+ | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+63 | Third | administrators | can | manually | invoke | these | requests | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+64 | This | is | particularly | useful | in | testing | the | actions | associated | with | those | requests | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+65 | Fourth | request | forwarded | to | the | AutomatedServlet | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+66 | Fifth | automatedServlet | uses | the | AutomatedActionFactory | to | generate | the | matching | AutomatedAction | object | e.g. | CompileLogsAction | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+67 | Sixth | automatedServlet | executes | the | action | 
+ | 0 | 0 | 0 | 0 | 0 | 
+
+68 | Seventh | the | corresponding | AutomatedAction | will | be | performed | interacting | with | the | Logic | component | as | necessary | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 
+
+69 | GAE | server | sends | such | automated | requests | through | two | different | configurations | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+70 | These | configurations | are | cron | jobs | or | task | queue | workers | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+71 | Cron | jobs | are | jobs | that | are | automatically | scheduled | for | a | specified | period | of | time | e.g. | scheduling | feedback | session | opening | reminders | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+72 | It | is | configured | in | cron.xml | 
+ | 0 | 0 | 0 | 0 | 0 | 
+
+73 | Task | queue | workers | are | hybrids | of | user-invoked | and | GAE-invoked | in | that | they | are | queued | by | users | -LRB- | i.e. | users | request | for | the | tasks | to | be | added | to | queue | -RRB- | but | executed | by | GAE | -LRB- | i.e. | GAE | determines | when | and | which | tasks | in | the | queue | are | executed | at | any | point | of | time | -RRB- | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+74 | This | is | typically | used | for | tasks | that | may | take | a | long | time | to | finish | and | can | exceed | the | minute | standard | request | processing | limit | imposed | by | GAE | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+75 | It | is | configured | in | queue.xml | as | well | as | the | TaskQueue | nested | class | of | the | Const | class | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+76 | Since | the | high-level | workflow | of | processing | a | request | is | same | for | any | request | -LRB- | differing | by | the | two | request | types | only | -RRB- | we | use | the | Template | Method | pattern | to | abstract | the | process | flow | into | the | Action | and | AutomatedAction | classes | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+77 | The | Logic | component | handles | the | business | logic | of | TEAMMATES | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+78 | In | particular | it | is | responsible | for | the | following | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+79 | Managing | relationships | between | entities | e.g. | cascade | logic | for | create/update/delete | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+80 | Managing | transactions | e.g. | ensuring | atomicity | of | a | transaction | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+81 | Sanitizing | input | values | received | from | the | UI | component | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+82 | Providing | a | mechanism | for | checking | access | control | rights | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+83 | Connecting | to | GAE-provided | or | third-party | APIs | e.g. | for | adding | tasks | to | the | task | queue | and | for | sending | emails | with | third-party | providers | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+84 | Package | overview | contains | logic.api | logic.core | 
+ | 0 | 0 | 0 | 1 | 1 | 
+
+85 | logic.api | provides | the | API | of | the | component | to | be | accessed | by | the | UI | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+86 | logic.core | contains | the | core | logic | of | the | system | 
+ | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 
+
+87 | Logic | API | is | represented | by | the | classes | Logic | GateKeeper | EmailGenerator | EmailSender | TaskQueuer | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 
+
+88 | Logic | is | a | Facade | class | which | connects | to | the | several | Logic | classes | to | handle | the | logic | related | to | various | types | of | data | and | to | access | data | from | the | Storage | component | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 
+
+89 | GateKeeper | checks | access | rights | of | a | user | for | a | given | action | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+90 | EmailGenerator | generates | emails | to | be | sent | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+91 | EmailSender | sends | email | with | the | provider | chosen | based | on | the | build | configuration | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+92 | It | connects | to | the | email | provider | by | using | the | appropriate | Service | class | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+93 | TaskQueuer | adds | tasks | to | the | task | queue | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+94 | It | connects | to | GAE | 's | task | queue | API | 
+ | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 
+
+95 | To | access | control | the | following | information | are | presented | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+96 | Although | this | component | provides | methods | to | perform | access | control | the | API | itself | is | not | access | controlled | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+97 | The | UI | is | expected | to | check | access | control | -LRB- | using | GateKeeper | class | -RRB- | before | calling | a | method | in | the | Logic | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+98 | To | API | for | creating | entities | the | following | information | are | presented | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+99 | Null | parameters | causes | an | assertion | failure | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+100 | Invalid | parameters | throws | InvalidParametersException | 
+ | 0 | 0 | 0 | 0 | 
+
+101 | Entity | already | exists | throws | EntityAlreadyExistsException | -LRB- | escalated | from | Storage | level | -RRB- | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+102 | To | API | for | retrieving | entities | the | following | information | are | presented | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+103 | Attempting | to | retrieve | objects | using | null | parameters | causes | an | assertion | failure | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+104 | Entity | not | found | returns | null | if | the | target | entity | not | found | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+105 | This | way | read | operations | can | be | used | easily | for | checking | the | existence | of | an | entity | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+106 | To | API | for | updating | entities | the | following | information | are | presented | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+107 | Update | is | done | using | UpdateOptions | inside | every | Attributes | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+108 | The | UpdateOptions | will | specify | what | is | used | to | identify | the | entity | to | update | and | what | will | be | updated | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+109 | Entity | not | found | throws | EntityDoesNotExistException | 
+ | 0 | 0 | 0 | 0 | 0 | 
+
+110 | Invalid | parameters | throws | InvalidParametersException | 
+ | 0 | 0 | 0 | 0 | 
+
+111 | To | API | for | deleting | entities | the | following | information | are | presented | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+112 | The | following | explains | the | FailDeleteSilentlyPolicy | 
+ | 0 | 0 | 0 | 0 | 0 | 
+
+113 | In | general | delete | operation | do | not | throw | exceptions | if | the | target | entity | does | not | exist | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+114 | This | is | because | if | it | does | not | exist | it | is | as | good | as | deleted | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+115 | The | following | explains | the | Cascade | policy | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+116 | When | a | parent | entity | is | deleted | entities | that | have | referential | integrity | with | the | deleted | entity | should | also | be | deleted | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+117 | Refer | to | the | API | for | the | cascade | logic | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+118 | The | Storage | component | performs | CRUD | -LRB- | Create | Read | Update | Delete | -RRB- | operations | on | data | entities | individually | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+119 | It | contains | minimal | logic | beyond | what | is | directly | relevant | to | CRUD | operations | 
+ | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+120 | In | particular | it | is | reponsible | for | the | following | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+121 | Validating | data | inside | entities | before | creating/updating | them | to | ensure | they | are | in | a | valid | state | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+122 | Hiding | the | complexities | of | datastore | from | the | Logic | component | 
+ | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 
+
+123 | All | GQL | queries | are | to | be | contained | inside | the | Storage | component | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+124 | Hiding | the | persistable | objects | 
+ | 0 | 0 | 0 | 0 | 
+
+125 | Classes | in | the | storage.entity | package | are | not | visible | outside | this | component | to | hide | information | specific | to | data | persistence | 
+ | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+126 | Instead | a | corresponding | non-persistent | data | transfer | object | named | Attributes | -LRB- | e.g. | CourseAttributes | is | the | data | transfer | object | for | Course | entities | -RRB- | object | is | returned | 
+ | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+127 | These | datatransfer | classes | are | in | common.datatransfer | package | to | be | explained | later | 
+ | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 
+
+128 | The | Storage | component | does | not | perform | any | cascade | delete/create | operations | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+129 | Cascade | logic | is | handled | by | the | Logic | component | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+130 | Package | overview | contains | storage.api | storage.entity | storage.search | 
+ | 0 | 0 | 0 | 1 | 1 | 1 | 
+
+131 | storage.api | provides | the | API | of | the | component | to | be | accessed | by | the | logic | component | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+132 | storage.entity | contains | classes | that | represent | persistable | entities | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+133 | storage.search | contains | classes | for | dealing | with | searching | and | indexing | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+134 | Note | that | the | navigability | of | the | association | links | between | entity | objects | appear | to | be | in | the | reverse | direction | of | what | we | see | in | a | normal | OOP | design | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+135 | This | is | because | we | want | to | keep | the | data | schema | flexible | so | that | new | entity | types | can | be | added | later | with | minimal | modifications | to | existing | elements | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+136 | Represented | by | the | Db | classes | 
+ | 0 | 0 | 0 | 0 | 0 | 
+
+137 | These | classes | act | as | the | bridge | to | the | GAE | Datastore | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 
+
+138 | Add | and | Delete | operations | try | to | wait | until | data | is | persisted | in | the | datastore | before | returning | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+139 | This | is | not | enough | to | compensate | for | eventual | consistency | involving | multiple | servers | in | the | GAE | production | enviornment | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+140 | However | it | is | expected | to | avoid | test | failures | caused | by | eventual | consistency | in | dev | server | and | reduce | such | problems | in | the | live | server | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+141 | Eventual | consistency | here | means | it | takes | some | time | for | a | database | operation | to | propagate | across | all | serves | of | the | Google | 's | distributed | datastore | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+142 | As | a | result | the | data | may | be | in | an | inconsistent | states | for | short | periods | of | time | although | things | should | become | consistent | eventually | 
+ | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+143 | For | example | an | object | we | deleted | may | appear | to | still | exist | for | a | short | while | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+144 | Implementation | of | Transaction | Control | has | been | minimized | due | to | limitations | of | GAE | environment | and | the | nature | of | our | data | schema | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+145 | To | API | for | creating | the | following | information | are | presented | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+146 | Attempt | to | create | an | entity | that | already | exists | throws | EntityAlreadyExistsException | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+147 | Attempt | to | create | an | entity | with | invalid | data | throws | InvalidParametersException | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+148 | To | API | for | retrieving | the | following | information | are | presented | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+149 | Attempt | to | retrieve | an | entity | that | does | not | exist | returns | null | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+150 | To | API | for | updating | the | following | information | are | presented | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+151 | Attempt | to | update | an | entity | that | does | not | exist | throws | EntityDoesNotExistException | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+152 | Attempt | to | update | an | entity | with | invalid | data | throws | InvalidParametersException | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+153 | To | API | for | deleting | the | following | information | are | presented | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+154 | Attempt | to | delete | an | entity | that | does | not | exist | fails | silently | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+155 | The | Common | component | contains | common | utilities | used | across | TEAMMATES | 
+ | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 
+
+156 | Package | overview | contains | common.util | common.exceptions | common.datatransfer | 
+ | 0 | 0 | 0 | 1 | 1 | 1 | 
+
+157 | common.util | contains | utility | classes | 
+ | 1 | 0 | 0 | 0 | 
+
+158 | common.exceptions | contains | custom | exceptions | 
+ | 1 | 0 | 0 | 0 | 
+
+159 | common.datatransfer | contains | data | transfer | objects | 
+ | 1 | 0 | 1 | 0 | 0 | 
+
+160 | common.datatransfer | package | contains | lightweight | data | transfer | object | classes | for | transferring | data | among | components | 
+ | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+161 | They | can | be | combined | in | various | ways | to | transfer | structured | data | between | components | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+162 | Given | below | are | three | examples | 
+ | 0 | 0 | 0 | 0 | 0 | 
+
+163 | Test | Driver | can | use | the | DataBundle | in | this | manner | to | send | an | arbitrary | number | of | objects | to | be | persisted | in | the | database | 
+ | 1 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+164 | This | structure | can | be | used | to | transfer | data | of | a | course | -LRB- | e.g. | when | constructing | the | home | page | for | an | instructor | -RRB- | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+165 | This | structure | can | be | used | to | send | results | of | a | feedback | session | -LRB- | e.g. | when | showing | a | feedback | session | report | to | an | instructor | -RRB- | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+166 | Some | of | these | classes | are | methodless | and | thus | more | of | a | data | structure | rather | than | a | class | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 
+
+167 | These | classes | use | public | variables | for | data | for | easy | access | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 
+
+168 | This | component | automates | the | testing | of | TEAMMATES | 
+ | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 
+
+169 | Package | overview | contains | test.driver | test.cases | and | subpackages | 
+ | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 
+
+170 | test.driver | contains | infrastructure | and | helpers | needed | for | running | the | tests | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+171 | test.cases | contains | test | cases | 
+ | 1 | 0 | 1 | 0 | 
+
+172 | Sub-packages | contains | x.testdriver | x.datatransfer | x.util | x.logic | x.storage | x.search | x.webapi | x.automated | 
+ | 0 | 0 | 1 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | 
+
+173 | x.testdriver | contains | component | test | cases | for | testing | the | test | driver | infrastructure | and | helpers | 
+ | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 
+
+174 | x.datatransfer | contains | component | test | cases | for | testing | the | datatransfer | objects | from | the | Common | component | 
+ | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 
+
+175 | x.util | contains | component | test | cases | for | testing | the | utility | classes | from | the | Common | component | 
+ | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+176 | x.logic | contains | component | test | cases | for | testing | the | Logic | component | 
+ | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+177 | x.storage | contains | component | test | cases | for | testing | the | Storage | component | 
+ | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+178 | x.search | contains | component | test | cases | for | testing | the | search | functions | 
+ | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+179 | x.webapi | contains | system | test | cases | for | testing | the | user-invoked | actions | 
+ | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+180 | x.automated | contains | system | test | cases | for | testing | the | system-automated | actions | -LRB- | manually | invoked | during | testing | -RRB- | 
+ | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+181 | Some | Component | tests | are | pure | unit | tests | -LRB- | i.e. | testing | one | component | in | isolation | -RRB- | while | others | are | integration | tests | that | test | units | as | well | as | integration | of | units | with | each | other | 
+ | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+182 | Front-end | files | -LRB- | particularly | TypeScript | -RRB- | are | tested | separately | with | Jest | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+183 | The | test | cases | are | found | in | x.spec.ts | files | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+184 | This | is | how | TEAMMATES | testing | maps | to | standard | types | of | testing | 
+ | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+185 | The | E2E | component | has | no | knowledge | of | the | internal | workings | of | the | application | and | can | only | interact | either | with | Web | browser | as | a | whole | application | or | REST | API | calls | for | the | back-end | logic | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+186 | Its | primary | function | is | for | E2E | tests | and | L&P | -LRB- | Load | Performance | -RRB- | tests | 
+ | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 
+
+187 | Package | overview | contains | e2e.util | e2e.pageobjects | e2e.cases | x.util | x.e2e | x.lnp | 
+ | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 1 | 0 | 
+
+188 | e2e.util | contains | helpers | needed | for | running | E2E | tests | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 
+
+189 | e2e.pageobjects | contains | abstractions | of | the | pages | as | they | appear | on | a | Browser | -LRB- | i.e. | SUTs | -RRB- | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+190 | e2e.cases | contains | test | cases | 
+ | 1 | 0 | 1 | 0 | 
+
+191 | x.util | contains | component | test | cases | for | testing | the | test | helpers | 
+ | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+192 | x.e2e | contains | system | test | cases | for | testing | the | application | as | a | whole | 
+ | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+193 | x.lnp | contains | load | and | performance | tests | -LRB- | experimental | -RRB- | 
+ | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 
+
+194 | The | Client | component | contains | scripts | that | can | connect | directly | to | the | application | back-end | for | administrative | purposes | such | as | migrating | data | to | a | new | schema | and | calculating | statistics | 
+ | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+195 | Package | overview | contains | client.util | client.remoteapi | client.scripts | 
+ | 0 | 0 | 0 | 1 | 1 | 1 | 
+
+196 | client.util | contains | helpers | needed | for | client | scripts | 
+ | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 
+
+197 | client.remoteapi | classes | needed | to | connect | to | the | back | end | directly | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+198 | client.scripts | scripts | that | deal | with | the | back | end | data | for | administrative | purposes | 
+ | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 

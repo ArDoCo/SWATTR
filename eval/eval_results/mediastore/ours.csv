@@ -1,0 +1,4 @@
+file; precision; recall; f1
+results_Core/mediastore/MS_Sim_050.csv; 1.0; 0.16; 0.2758620689655173
+results_Core/mediastore/MS_Sim_075.csv; 1.0; 0.16; 0.2758620689655173
+results_Core/mediastore/MS_Sim_100.csv; 0.46875; 0.6; 0.5263157894736842
