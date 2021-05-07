@@ -25,7 +25,7 @@ jobs:
       
     - name: Save SWATTR
       uses: actions/upload-artifact@v2
-        with:
+      with:
           name: ardoco-core-pipeline.jar
           path: reproduction/ardoco-core-pipeline.jar
   
@@ -56,7 +56,7 @@ jobs:
     steps:
     - name: Download SWATTR
       uses: actions/download-artifact@v2
-        with:
+      with:
         name: ardoco-core-pipeline.jar
         path: reproduction/ardoco-core-pipeline.jar
         
