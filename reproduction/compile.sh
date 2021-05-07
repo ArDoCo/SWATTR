@@ -39,5 +39,5 @@ SWATTR=$(pwd)/swattr_core
 OUTPUT=$(pwd)/reproduction
 
 echo "Building from sources"
-docker run --rm -it -v $PARENT:/root/swattr_parent_src:ro -v $SWATTR:/root/swattr_core_src:ro -v $OUTPUT:/root/swattr_out maven:3-openjdk-16 sh -c "cp -r /root/swattr_parent_src /root/swattr_parent && cp -r /root/swattr_core_src /root/swattr_core && cd /root/swattr_parent && mvn clean install && cd /root/swattr_core && mvn clean package && cp -f /root/swattr_core/pipeline/target/ardoco-core-pipeline.jar /root/swattr_out/ardoco-core-pipeline.jar"
+docker run --rm -it -v "$PARENT:/root/swattr_parent_src:ro" -v "$SWATTR:/root/swattr_core_src:ro" -v "$OUTPUT:/root/swattr_out" maven:3-openjdk-16 sh -c "cp -r /root/swattr_parent_src /root/swattr_parent && cp -r /root/swattr_core_src /root/swattr_core && cd /root/swattr_parent && mvn clean install && cd /root/swattr_core && mvn clean package && cp -f /root/swattr_core/pipeline/target/ardoco-core-pipeline.jar /root/swattr_out/ardoco-core-pipeline.jar"
 
