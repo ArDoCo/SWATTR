@@ -1,6 +1,0 @@
-[submodule "swattr_core"]
-	path = swattr_core
-	url = ../Core
-[submodule "swattr_parent"]
-	path = swattr_parent
-	url = ../ArDoCo-parent
