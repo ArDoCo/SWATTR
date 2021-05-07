@@ -8,6 +8,14 @@ then
         exit 1
 fi
 
+## Check bc support
+if ! command -v bc &> /dev/null
+then
+    echo "bc could not be found"
+    exit 1
+fi
+
+
 ## Check Docker support
 if ! command -v docker &> /dev/null
 then
@@ -90,4 +98,4 @@ docker run --rm -it \
 	-v "$PWD/swattr-results:/results" \
 	-v /tmp/config.properties:/config.properties:ro \
 	openjdk:16-buster \
-	sh -c "java --illegal-access=permit -jar /pipeline.jar -n $CASE_STUDY -m /case_studies$CASE_STUDY_MODEL -t /case_studies$CASE_STUDY_TEXT -c config.properties -o /results_raw && cp -f /results_raw/$CASE_STUDY\_trace_links.csv /results/$CASE_STUDY\_Links_Sim_$SIMILARITY_INT.csv"
+	sh -c "java --illegal-access=permit -jar /pipeline.jar -n $CASE_STUDY -m /case_studies$CASE_STUDY_MODEL -t /case_studies$CASE_STUDY_TEXT -c /config.properties -o /results_raw && cp -f /results_raw/$CASE_STUDY\_trace_links.csv /results/$CASE_STUDY\_Links_Sim_$SIMILARITY_INT.csv"
