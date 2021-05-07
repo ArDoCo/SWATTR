@@ -54,6 +54,13 @@ jobs:
             sim_score: 1            
             
     steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: 16
+    
     - name: Download SWATTR
       uses: actions/download-artifact@v2
       with:
