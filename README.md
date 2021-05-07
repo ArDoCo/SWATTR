@@ -4,8 +4,8 @@
 
 ## Structure
 The current structure of this repository is currently as follows:
-* case_studies: contains the models, texts, and gold standards of the certain case studies
-* eval: contains the evaluation script, and the results of the evaluation
-* swattr_core: contains a snapshot of ArDoCo Core
-* reproduction: contains code to build and evaluate the SWATTR approach
+* [case_studies](case_studies): contains the models, texts, and gold standards of our used case studies
+* [eval](eval): contains the evaluation script, and the results of the evaluation
+* [swattr_core](swattr_core): contains a snapshot of [ArDoCo Core](https://github.com/ArDoCo/Core)
+* [reproduction](reproduction): contains code to build and evaluate the SWATTR approach
 
