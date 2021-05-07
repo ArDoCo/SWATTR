@@ -1,0 +1,230 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>edu.kit.kastel.mcse.ardoco</groupId>
+	<artifactId>parent</artifactId>
+	<version>0.1.4-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>ArDoCo-parent</name>
+	<description>Parent-POM for the ArDoCo project</description>
+	<url>https://github.com/ArDoCo/ArDoCo-parent</url>
+
+	<properties>
+		<java.version>16</java.version>
+
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+
+		<sonar.projectKey>ArDoCo_ArDoCo-parent</sonar.projectKey>
+		<sonar.organization>ardoco</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
+
+	<issueManagement>
+		<url>https://github.com/ArDoco/ArDoCo-parent/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<repositories>
+		<repository>
+			<id>ipdNexus-releases</id>
+			<name>IPD-Repository</name>
+			<url>https://bob.ipd.kit.edu/nexus/repository/maven-public-releases</url>
+		</repository>
+		<repository>
+			<id>ipdNexus-snapshots</id>
+			<name>IPD-Repository</name>
+			<url>https://bob.ipd.kit.edu/nexus/repository/maven-public-snapshots</url>
+		</repository>
+		<repository>
+			<id>github</id>
+			<name>GitHub ArDoCo-parent Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/ArDoCo/ArDoCo-parent</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<!-- Eclipse collections -->
+		<dependency>
+			<groupId>org.eclipse.collections</groupId>
+			<artifactId>eclipse-collections-api</artifactId>
+			<version>10.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.collections</groupId>
+			<artifactId>eclipse-collections</artifactId>
+			<version>10.4.0</version>
+		</dependency>
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+
+		<!-- Testing -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.7.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<version>5.7.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version>1.7.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>3.9.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- PARSE and INDIRECT -->
+			<dependency>
+				<groupId>edu.kit.ipd.parse</groupId>
+				<artifactId>parse</artifactId>
+				<version>0.0.5-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.parse</groupId>
+				<artifactId>luna</artifactId>
+				<version>0.7.5</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.pronat</groupId>
+				<artifactId>change_watchdog</artifactId>
+				<version>0.0.3-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.pronat</groupId>
+				<artifactId>pre_pipeline_data_model</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.parse</groupId>
+				<artifactId>change_watchdog</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>edu.kit.ipd.indirect</groupId>
+				<artifactId>depParser</artifactId>
+				<version>0.0.6-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.indirect</groupId>
+				<artifactId>tokenizer</artifactId>
+				<version>0.0.5-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.indirect</groupId>
+				<artifactId>graphBuilder</artifactId>
+				<version>0.0.5-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.indirect</groupId>
+				<artifactId>textSNLP</artifactId>
+				<version>0.0.6-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.indirect</groupId>
+				<artifactId>entityRecognizer</artifactId>
+				<version>0.0.7-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.indirect</groupId>
+				<artifactId>conceptualizer</artifactId>
+				<version>0.0.6-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>edu.kit.ipd.indirect</groupId>
+				<artifactId>coref</artifactId>
+				<version>0.0.5-SNAPSHOT</version>
+			</dependency>
+
+			<!-- Apache Jena -->
+			<dependency>
+				<groupId>org.apache.jena</groupId>
+				<artifactId>apache-jena-libs</artifactId>
+				<type>pom</type>
+				<version>3.17.0</version>
+			</dependency>
+
+			<!-- Commons -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.12.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-text</artifactId>
+				<version>1.9</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>${java.version}</release>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub ArDoCo Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/ArDoCo/ArDoCo-parent</url>
+		</repository>
+		<snapshotRepository>
+			<id>github</id>
+			<name>GitHub ArDoCo Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/ArDoCo/ArDoCo-parent</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>
