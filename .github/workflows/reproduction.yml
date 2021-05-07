@@ -1,0 +1,66 @@
+name: SWATTR Reproduction
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: 16
+        
+    - name: Build / Install Parent
+      run: cd swattr_parent && mvn clean install
+      
+    - name: Build SWATTR
+      run: cd swattr_core && mvn package && cd .. && cp -f swattr_core/pipeline/target/ardoco-core-pipeline.jar reproduction/ardoco-core-pipeline.jar
+  
+  evaluate:
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        similarity: [50, 75, 100]
+        case_study: [TS, TM, MS]
+        include:
+          - case_study: TS
+            model: /teastore/model/teastore.owl
+            text: /teastore/text/EcsaText.txt
+          - case_study: TM
+            model: /teammates/model/teammates.owl
+            text: /teammates/text/TeammatesForEvalText.txt
+          - case_study: MS
+            model: /mediastore/models/mediastore.owl
+            text: /mediastore/text/Palladio_MediaStore_Text.txt
+          - similarity: 50
+            sim_score: 0.5
+          - similarity: 75
+            sim_score: 0.75
+          - similarity: 100
+            sim_score: 1            
+            
+    steps:
+    - name: Evaluate SWATTR (MediaStore 50)
+      run: cd reproduction && echo "similarityPercentage=${{ matrix.sim_score }}" > config.properties && java --illegal-access=permit -jar ardoco-core-pipeline.jar -n "${{ matrix.case_study }}" -m "../case_studies/${{ matrix.model }}" -t "../case_studies/${{ matrix.text }}" -c config.properties -o "swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}"
+      
+  aggregate:
+    runs-on: ubuntu-latest
+    needs: evaluate
+    steps:
+    - name: 'Tar files'
+      run: tar -czvf reproduction.tgz reproduction/swattr_results_*
+
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: Reproduction
+        path: reproduction.tgz   
+    
+    
