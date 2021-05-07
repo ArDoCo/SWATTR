@@ -34,10 +34,6 @@ fi
 
 cd ..
 
-echo "Initializing Submodules"
-git submodule update --init
-
-
 PARENT=$(pwd)/swattr_parent
 SWATTR=$(pwd)/swattr_core
 OUTPUT=$(pwd)/reproduction
