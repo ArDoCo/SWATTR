@@ -60,21 +60,21 @@ jobs:
         name: ardoco-core-pipeline.jar
         path: reproduction/ardoco-core-pipeline.jar
         
+    - name: Show Reproduction Directory and set similarity
+      working-directory: reproduction
+      run: echo "similarityPercentage=${{ matrix.sim_score }}" > config.properties && ls -l
     - name: Evaluate SWATTR
       working-directory: reproduction
-      run: echo "similarityPercentage=${{ matrix.sim_score }}" > config.properties && java --illegal-access=permit -jar ardoco-core-pipeline.jar -n "${{ matrix.case_study }}" -m "../case_studies/${{ matrix.model }}" -t "../case_studies/${{ matrix.text }}" -c config.properties -o "swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}"
+      run: java --illegal-access=permit -jar ardoco-core-pipeline.jar -n "${{ matrix.case_study }}" -m "../case_studies/${{ matrix.model }}" -t "../case_studies/${{ matrix.text }}" -c config.properties -o "swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}"
       
-  aggregate:
-    runs-on: ubuntu-latest
-    needs: evaluate
-    steps:
-    - name: 'Tar files'
-      run: tar -czvf reproduction.tgz reproduction/swattr_results_*
-
-    - name: 'Upload Artifact'
+    - name: Zipping Results
+      working-directory: reproduction
+      run: tar -czf "swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}.tgz" swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}
+    
+    - name: Save SWATTR Results
       uses: actions/upload-artifact@v2
       with:
-        name: Reproduction
-        path: reproduction.tgz   
+        name: "swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}.tgz"
+        path: "reproduction/swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}.tgz"
     
     
