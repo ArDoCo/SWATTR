@@ -74,7 +74,7 @@ jobs:
       working-directory: reproduction
       run: java --illegal-access=permit -jar ardoco-core-pipeline.jar -n "${{ matrix.case_study }}" -m "../case_studies/${{ matrix.model }}" -t "../case_studies/${{ matrix.text }}" -c config.properties -o "swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}"
       
-    - name: Zipping Results
+    - name: Compressing Results
       working-directory: reproduction
       run: tar -czf "swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}.tgz" swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}
     
