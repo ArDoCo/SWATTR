@@ -41,7 +41,8 @@ fi
 
 if [ "$#" -ne 2 ]
 then
-	echo "Illegal number of arguments: You have to provide Similarity Percentage and Case Study"
+	echo "Illegal number of arguments. We need Case Study and Similarity [0,100]"
+	echo "Usage: bash evaluate.sh [MS|TS|TM] [0-100]"
 	exit 1
 fi
 
@@ -82,10 +83,10 @@ then
 	exit 2
 fi
 
-SIMILARITY=$(bc -l <<< "$2 / 100")
-SIMILARITY_INT=$2
+#SIMILARITY=$(bc -l <<< "$2 / 100")
 #echo "Similarity: $SIMILARITY"
 
+SIMILARITY_INT=$2
 
 
 ## Execute
@@ -96,6 +97,6 @@ docker run --rm -it \
 	-v "$SWATTR_DIR/case_studies:/case_studies:ro" \
 	-v "$PWD/ardoco-core-pipeline.jar:/pipeline.jar:ro" \
 	-v "$PWD/swattr-results:/results" \
-	-v /tmp/config.properties:/config.properties:ro \
+	-v "$PWD/.evaluate-helper.sh:/eval-helper.sh:ro" \
 	openjdk:16-buster \
-	sh -c "java --illegal-access=permit -jar /pipeline.jar -n $CASE_STUDY -m /case_studies$CASE_STUDY_MODEL -t /case_studies$CASE_STUDY_TEXT -c /config.properties -o /results_raw && cp -f /results_raw/$CASE_STUDY\_trace_links.csv /results/$CASE_STUDY\_Links_Sim_$SIMILARITY_INT.csv"
+	sh -c "bash /eval-helper.sh $SIMILARITY_INT && java --illegal-access=permit -jar /pipeline.jar -n $CASE_STUDY -m /case_studies$CASE_STUDY_MODEL -t /case_studies$CASE_STUDY_TEXT -c /config.properties -o /results_raw && cp -f /results_raw/$CASE_STUDY\_trace_links.csv /results/$CASE_STUDY\_Links_Sim_$SIMILARITY_INT.csv"
