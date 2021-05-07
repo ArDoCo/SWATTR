@@ -21,13 +21,13 @@ jobs:
       run: cd swattr_parent && mvn clean install
       
     - name: Build SWATTR
-      run: cd swattr_core && mvn package && cd .. && cp -f swattr_core/pipeline/target/ardoco-core-pipeline.jar reproduction/ardoco-core-pipeline.jar
+      run: cd swattr_core && mvn package
       
     - name: Save SWATTR
       uses: actions/upload-artifact@v2
       with:
           name: ardoco-core-pipeline.jar
-          path: reproduction/ardoco-core-pipeline.jar
+          path: swattr_core/pipeline/target/ardoco-core-pipeline.jar
   
   evaluate:
     runs-on: ubuntu-latest
