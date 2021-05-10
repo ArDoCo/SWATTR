@@ -44,12 +44,12 @@ jobs:
       
     - name: Compressing Results
       working-directory: reproduction
-      run: tar -czf "rodriguez20_results_{{ matrix.case_study }}_{{ matrix.iterations }}_{{ matrix.genes_per_chromosome }}_{{ matrix.chromosomes_per_population }}_{{ matrix.all_iterations }}.tgz" output
+      run: tar -czf "rodriguez20_results_${{ matrix.case_study }}_${{ matrix.iterations }}_${{ matrix.genes_per_chromosome }}_${{ matrix.chromosomes_per_population }}_${{ matrix.all_iterations }}.tgz" output
     
     - name: Save Results
       uses: actions/upload-artifact@v2
       with:
-        name: "rodriguez20_results_{{ matrix.case_study }}_{{ matrix.iterations }}_{{ matrix.genes_per_chromosome }}_{{ matrix.chromosomes_per_population }}_{{ matrix.all_iterations }}.tgz"
-        path: "reproduction/rodriguez20_results_{{ matrix.case_study }}_{{ matrix.iterations }}_{{ matrix.genes_per_chromosome }}_{{ matrix.chromosomes_per_population }}_{{ matrix.all_iterations }}.tgz"
+        name: "rodriguez20_results_${{ matrix.case_study }}_${{ matrix.iterations }}_${{ matrix.genes_per_chromosome }}_${{ matrix.chromosomes_per_population }}_${{ matrix.all_iterations }}.tgz"
+        path: "reproduction/rodriguez20_results_${{ matrix.case_study }}_${{ matrix.iterations }}_${{ matrix.genes_per_chromosome }}_${{ matrix.chromosomes_per_population }}_${{ matrix.all_iterations }}.tgz"
     
     
