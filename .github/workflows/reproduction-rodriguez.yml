@@ -38,9 +38,9 @@ jobs:
     - name: Build rodriguez20
       run: cd baselines/rodriguez20 && mvn package
         
-    - name: Evaluate SWATTR
+    - name: Evaluate Rodriguez20
       working-directory: reproduction
-      run: java --illegal-access=permit -jar ../baselines/rodriguez20/target/rodriguez20.jar "../case_studies/${{ matrix.text }}" "../case_studies/${{ matrix.model }}" ${{ matrix.iterations }} ${{ matrix.genes_per_chromosome }} ${{ matrix.chromosomes_per_population }} ${{ matrix.all_iterations }} 
+      run: mkdir -p output && java --illegal-access=permit -jar ../baselines/rodriguez20/target/rodriguez20.jar "../case_studies/${{ matrix.text }}" "../case_studies/${{ matrix.model }}" ${{ matrix.iterations }} ${{ matrix.genes_per_chromosome }} ${{ matrix.chromosomes_per_population }} ${{ matrix.all_iterations }} 
       
     - name: Compressing Results
       working-directory: reproduction
