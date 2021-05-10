@@ -4,6 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import org.apache.commons.io.FileUtils;
+import org.reflections.Reflections;
+import org.reflections.scanners.ResourcesScanner;
 
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.item.POS;
@@ -12,11 +17,11 @@ import edu.stanford.nlp.ling.TaggedWord;
 
 public class Stemmer {
 
-    // For some reasons, getResource bugs for me and does not find the file. Therefore, this explicit path for now.
-    private static final String DICTIONARY_PATH = "src/main/resources/dict";
-    private static Dictionary dict = new Dictionary(new File(DICTIONARY_PATH));
+    private static Dictionary dict;
     static {
         try {
+            File dir = copyData();
+            dict = new Dictionary(dir);
             dict.open();
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,5 +48,26 @@ public class Stemmer {
             finalString[i] = stemmedWords.get(i);
         }
         return finalString;
+    }
+
+    private static File copyData() {
+        Object loader = new Object() {
+        };
+        File tmp = new File(System.getProperty("java.io.tmpdir"));
+        File target = new File(tmp + File.separator + "swattr-rodriguez20-data");
+        target.mkdirs();
+        final String base = "dict";
+        Set<String> files = new Reflections(base, new ResourcesScanner()).getResources(p -> true);
+        try {
+            for (String file : files) {
+                String path = file.substring(base.length());
+                FileUtils.copyURLToFile(loader.getClass().getResource("/" + file), new File(target + path));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        System.out.println("Copied files to " + target.getAbsolutePath());
+        return target;
     }
 }
