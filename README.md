@@ -11,3 +11,6 @@ The current structure of this repository is currently as follows:
 * [swattr_core](swattr_core): contains a snapshot of [ArDoCo Core](https://github.com/ArDoCo/Core),
 * [reproduction](reproduction): contains code to build and evaluate the SWATTR approach.
 
+## Reproduction
+As stated above, you can either use the instructions of the [reproduction directory](reproduction) to build SWATTR from sources or you can use GitHub Actions to reproduce the results.
+If you want to use GitHub Actions, simply take a look at the [runs](https://github.com/ArDoCo/SWATTR/actions).
