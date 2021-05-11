@@ -1,0 +1,54 @@
+name: Rodriguez20 Reproduction
+
+on:
+  release:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs: 
+  evaluate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        iterations: [100,1000]
+        genes_per_chromosome: [120,80,60]
+        chromosomes_per_population: [200,240]
+        
+        case_study: [TS, TM, MS]
+        include:
+          - case_study: TS
+            model: teastore/model
+            text: teastore/text
+          - case_study: TM
+            model: teammates/model
+            text: teammates/text
+          - case_study: MS
+            model: mediastore/models
+            text: mediastore/text
+            
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: 16
+             
+    - name: Build rodriguez20
+      run: cd baselines/rodriguez20 && mvn package
+        
+    - name: Evaluate Rodriguez20
+      working-directory: reproduction
+      run: mkdir -p output && java --illegal-access=permit -jar ../baselines/rodriguez20/target/rodriguez20.jar "../case_studies/${{ matrix.text }}" "../case_studies/${{ matrix.model }}" ${{ matrix.iterations }} ${{ matrix.genes_per_chromosome }} ${{ matrix.chromosomes_per_population }} 10 
+      
+    - name: Compressing Results
+      working-directory: reproduction
+      run: tar -czf "rodriguez20_results_${{ matrix.case_study }}_${{ matrix.iterations }}_${{ matrix.genes_per_chromosome }}_${{ matrix.chromosomes_per_population }}.tgz" output
+    
+    - name: Save Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: "rodriguez20_results_${{ matrix.case_study }}_${{ matrix.iterations }}_${{ matrix.genes_per_chromosome }}_${{ matrix.chromosomes_per_population }}.tgz"
+        path: "reproduction/rodriguez20_results_${{ matrix.case_study }}_${{ matrix.iterations }}_${{ matrix.genes_per_chromosome }}_${{ matrix.chromosomes_per_population }}.tgz"
+    
+    
