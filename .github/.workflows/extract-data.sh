@@ -1,5 +1,5 @@
 #!/bin/bash
-ls -l
+find .
 
 case_studies="MS TS TM"
 
