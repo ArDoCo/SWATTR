@@ -107,7 +107,10 @@ def process(args):
         listing = [os.path.join(dp, f) for dp, dn, fn in os.walk(os.path.expanduser(args.test)) for f in fn]
         for test_file in listing:
             if test_file.endswith('.csv'):
-                process_single(gold_set=gold_set, test_file=test_file, out_file=args.output)
+                try:
+                    process_single(gold_set=gold_set, test_file=test_file, out_file=args.output)
+                except Exception:
+                    print('Skipping ' + test_file + '. It is an invalid CSV file')
             else:
                 print('Skipping ' + test_file + '. It is no CSV-file')
     else:
