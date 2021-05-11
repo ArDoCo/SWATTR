@@ -37,14 +37,38 @@ jobs:
       working-directory: reproduction
       run: mkdir -p output && java --illegal-access=permit -jar ../baselines/zhang16/target/zhang16.jar "../case_studies/${{ matrix.text }}" "../case_studies/${{ matrix.model }}" 
       
-    - name: Compressing Results
+    - name: Renaming Results
       working-directory: reproduction
-      run: tar -czf "zhang16_results_${{ matrix.case_study }}.tgz" output
+      run: mv output "zhang16_results_${{ matrix.case_study }}"
     
     - name: Save Results
       uses: actions/upload-artifact@v2
       with:
-        name: "zhang16_results_${{ matrix.case_study }}.tgz"
-        path: "reproduction/zhang16_results_${{ matrix.case_study }}.tgz"
+        name: "zhang16_results_${{ matrix.case_study }}"
+        path: "reproduction/zhang16_results_${{ matrix.case_study }}"
     
     
+  aggregate:
+    runs-on: ubuntu-latest
+    needs: evaluate
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v2
+      with:
+        path: evaluated-data
+        
+    - name: Structure Data
+      working-directory: evaluated-data
+      run: cp ../.github/.workflows/extract-data.sh . && bash extract-data.sh 
+      
+    - name: Evaluate Precision, Recall, F1
+      working-directory: evaluated-data
+      run: python -m pip install --upgrade pip && pip install -r ../eval/requirements.txt && cp ../.github/.workflows/evaluate.sh . && bash evaluate.sh
+      
+    - name: Save Evaluation Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: "Evaluation_Zhang16"
+        path: "evaluated-data/results"
+      
