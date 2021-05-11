@@ -1,0 +1,50 @@
+name: Zhang16 Reproduction
+
+on:
+  push:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs: 
+  evaluate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:        
+        case_study: [TS, TM, MS]
+        include:
+          - case_study: TS
+            model: teastore/model/TeaStore.repository
+            text: teastore/text/EcsaText.txt
+          - case_study: TM
+            model: teammates/model/teammates.repository
+            text: teammates/text/TeammatesForEvalText.txt
+          - case_study: MS
+            model: mediastore/models/ms.repository
+            text: mediastore/text/Palladio_MediaStore_Text.txt
+            
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: 16
+             
+    - name: Build zhang16
+      run: cd baselines/zhang16 && mvn package
+        
+    - name: Evaluate Zhang16
+      working-directory: reproduction
+      run: mkdir -p output && java --illegal-access=permit -jar ../baselines/zhang16/target/zhang16.jar "../case_studies/${{ matrix.text }}" "../case_studies/${{ matrix.model }}" 
+      
+    - name: Compressing Results
+      working-directory: reproduction
+      run: tar -czf "zhang16_results_${{ matrix.case_study }}.tgz" output
+    
+    - name: Save Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: "rodriguez20_results_${{ matrix.case_study }}.tgz"
+        path: "reproduction/rodriguez20_results_${{ matrix.case_study }}.tgz"
+    
+    
