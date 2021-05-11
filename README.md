@@ -1,6 +1,7 @@
 # SoftWare Architecture Text Tracelink Recovery (SWATTR)
 [![DOI](https://zenodo.org/badge/359732572.svg)](https://zenodo.org/badge/latestdoi/359732572)
 [![SWATTR Reproduction](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction.yml/badge.svg)](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction.yml)
+[![Rodriguez20 Reproduction](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction-rodriguez.yml/badge.svg)](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction-rodriguez.yml)
 
 ## Structure
 The current structure of this repository is currently as follows:
