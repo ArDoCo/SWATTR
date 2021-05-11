@@ -1,6 +1,9 @@
 # Reproduction of Results
 This directory helps you to reproduce the results
 
+You will need **maven with JDK 16** or **docker** if you want to execute the approach yourself.
+If you don't want to execute the approach(es) yourself, you can also look at the [automatically executed workflows for reproduction](https://github.com/ArDoCo/SWATTR/actions) the get the results produced by GitHub Actions.
+
 ## 1. Compile SWATTR
 You have multiple options to compile SWATTR
 
