@@ -53,7 +53,7 @@ jobs:
     - name: Save SWATTR Results
       uses: actions/upload-artifact@v2
       with:
-        name: "swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}.tgz"
+        name: "swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}"
         path: "reproduction/swattr_results_${{ matrix.similarity }}_${{ matrix.case_study }}"
     
   aggregate:
