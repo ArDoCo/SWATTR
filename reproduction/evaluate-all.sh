@@ -32,14 +32,17 @@ fi
 # MediaStore
 ./evaluate.sh MS 50
 ./evaluate.sh MS 75
+./evaluate.sh MS 80
 ./evaluate.sh MS 100
 
 # Teammates
 ./evaluate.sh TM 50
 ./evaluate.sh TM 75
+./evaluate.sh TM 80
 ./evaluate.sh TM 100
 
 # TeaStore
 ./evaluate.sh TS 50
 ./evaluate.sh TS 75
+./evaluate.sh TS 80
 ./evaluate.sh TS 100
