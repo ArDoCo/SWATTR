@@ -3,8 +3,8 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Set;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import edu.mit.jwi.item.POS;
 import edu.stanford.nlp.pipeline.Annotation;
@@ -37,9 +37,9 @@ public class NLProcessorTest {
 
         Set<VerbObjectPhrase> result = nlProcessor().getVoPhrases(new Annotation(testString2));
 
-        Assert.assertEquals(2, nlProcessor().getVoPhrases(new Annotation(testString1)).size());
-        Assert.assertEquals(0, nlProcessor().getVoPhrases(new Annotation(testString2)).size());
-        Assert.assertEquals(2, nlProcessor().getVoPhrases(new Annotation(testString3)).size());
+        Assertions.assertEquals(2, nlProcessor().getVoPhrases(new Annotation(testString1)).size());
+        Assertions.assertEquals(0, nlProcessor().getVoPhrases(new Annotation(testString2)).size());
+        Assertions.assertEquals(2, nlProcessor().getVoPhrases(new Annotation(testString3)).size());
 
     }
 
@@ -54,8 +54,8 @@ public class NLProcessorTest {
         List<VerbObjectPhrase> result1 = nlProcessor().getStemmedVOPhrases(testString1);
         List<VerbObjectPhrase> result2 = nlProcessor().getStemmedVOPhrases(testString2);
 
-        Assert.assertTrue(result1.contains(expected1));
-        Assert.assertTrue(result2.contains(expected2));
+        Assertions.assertTrue(result1.contains(expected1));
+        Assertions.assertTrue(result2.contains(expected2));
 
     }
 
@@ -67,8 +67,8 @@ public class NLProcessorTest {
         List<String> result1 = nlProcessor().getBagOfStemmedWords(testString1);
         List<String> result2 = nlProcessor().getBagOfStemmedWords(testString2);
 
-        Assert.assertTrue(result1.contains("edit"));
-        Assert.assertTrue(result2.contains("open"));
+        Assertions.assertTrue(result1.contains("edit"));
+        Assertions.assertTrue(result2.contains("open"));
     }
 
     @Test
@@ -76,41 +76,41 @@ public class NLProcessorTest {
         String testString1 = "The administrator and the user.";
         List<String> result1 = nlProcessor().getBagOfStemmedWords(testString1);
 
-        Assert.assertFalse(result1.contains("the"));
-        Assert.assertFalse(result1.contains("The"));
-        Assert.assertFalse(result1.contains("and"));
+        Assertions.assertFalse(result1.contains("the"));
+        Assertions.assertFalse(result1.contains("The"));
+        Assertions.assertFalse(result1.contains("and"));
     }
 
     @Test
     public void stem_keepUnstemmedWordIfNoStemFound() {
         String testString1 = "monkas";
-        Assert.assertTrue(nlProcessor().stem(testString1, POS.ADJECTIVE).contains("monkas"));
+        Assertions.assertTrue(nlProcessor().stem(testString1, POS.ADJECTIVE).contains("monkas"));
     }
 
     @Test
     public void stem_stemUnknownType() {
         String testString1 = "women";
-        Assert.assertTrue(nlProcessor().stem(testString1).contains("woman"));
+        Assertions.assertTrue(nlProcessor().stem(testString1).contains("woman"));
     }
 
     @Test
     public void stemIdentifier_properSplittingAndStemming() {
         Identifier testIdentifier = new Identifier(IdentifierType.OTHER, "downloadFilesAndConfiguration");
         Set<String> result = nlProcessor().stemIdentifier(testIdentifier);
-        Assert.assertTrue(result.size() == 3);
-        Assert.assertTrue(result.contains("download") && result.contains("file") && result.contains("configuration"));
+        Assertions.assertTrue(result.size() == 3);
+        Assertions.assertTrue(result.contains("download") && result.contains("file") && result.contains("configuration"));
     }
 
     @Test
     public void splitIdentifierName_properSplitting() {
         String testString1 = "thatIsWhatSheSaid";
-        Assert.assertEquals(nlProcessor().splitIdentifierName(testString1), "that is what she said");
+        Assertions.assertEquals(nlProcessor().splitIdentifierName(testString1), "that is what she said");
     }
 
     @Test
     public void splitIdentifierName_multipleUpperCases() {
         String testString1 = "saveCSVToFile";
         String result = nlProcessor().splitIdentifierName(testString1);
-        Assert.assertTrue(result.split(" ").length < 5);
+        Assertions.assertTrue(result.split(" ").length < 5);
     }
 }

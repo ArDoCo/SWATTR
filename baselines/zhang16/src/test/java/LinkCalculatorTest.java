@@ -1,44 +1,44 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import entity.Document;
 import entity.ModelEntityDocument;
 import entity.RelationGraph;
 import entity.VerbObjectPhrase;
-import org.checkerframework.checker.signature.qual.DotSeparatedIdentifiersOrPrimitiveType;
-import org.junit.Assert;
-import org.junit.Test;
 import process.LinkCalculator;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class LinkCalculatorTest{
+class LinkCalculatorTest {
 
     private LinkCalculator lc;
 
-    private LinkCalculator linkCalculator(){
-        if(this.lc==null){
-            this.lc = new LinkCalculator(0.25);
+    private LinkCalculator linkCalculator() {
+        if (lc == null) {
+            lc = new LinkCalculator(0.25);
         }
-        return this.lc;
+        return lc;
     }
 
-    public List<VerbObjectPhrase> generateTestVoPhrases(String word, int n){
+    List<VerbObjectPhrase> generateTestVoPhrases(String word, int n) {
         List<VerbObjectPhrase> testVoPhrases = new ArrayList<>();
-        for( int i = 0; i<n; i++){
-            testVoPhrases.add(new VerbObjectPhrase("verb_"+word + Integer.toString(i), "object_"+word+Integer.toString(i)));
+        for (int i = 0; i < n; i++) {
+            testVoPhrases.add(new VerbObjectPhrase("verb_" + word + Integer.toString(i), "object_" + word + Integer.toString(i)));
         }
         return testVoPhrases;
     }
 
-    public List<String> generateTestWords(String word, int n){
+    List<String> generateTestWords(String word, int n) {
         List<String> testWords = new ArrayList<>();
-        for( int i = 0; i<n; i++){
+        for (int i = 0; i < n; i++) {
             testWords.add(word + Integer.toString(i));
         }
         return testWords;
     }
 
     @Test
-    public void initVectors_properWordsWeightVectorInitialization_DistinctWords(){
+    void initVectors_properWordsWeightVectorInitialization_DistinctWords() {
 
         List<Document> testDocuments = new ArrayList<>();
 
@@ -56,20 +56,20 @@ public class LinkCalculatorTest{
 
         linkCalculator().initVectors(testDocuments);
 
-        Assert.assertEquals(testDoc1.getWordWeightVector().keySet().size(), 30);
+        Assertions.assertEquals(testDoc1.getWordWeightVector().keySet().size(), 30);
 
-        for(String w: testDoc1.getBagOfWords()){
-            Assert.assertTrue(testDoc1.getWordWeightVector().containsKey(w.hashCode()));
+        for (String w : testDoc1.getBagOfWords()) {
+            Assertions.assertTrue(testDoc1.getWordWeightVector().containsKey(w.hashCode()));
         }
 
-        Assert.assertEquals(testDoc1.getWordWeightVector(), testDoc2.getWordWeightVector());
-        Assert.assertEquals(testDoc2.getWordWeightVector(), testDoc3.getWordWeightVector());
-        Assert.assertEquals(testDoc3.getWordWeightVector(), testDoc1.getWordWeightVector());
+        Assertions.assertEquals(testDoc1.getWordWeightVector(), testDoc2.getWordWeightVector());
+        Assertions.assertEquals(testDoc2.getWordWeightVector(), testDoc3.getWordWeightVector());
+        Assertions.assertEquals(testDoc3.getWordWeightVector(), testDoc1.getWordWeightVector());
 
     }
 
     @Test
-    public void initVectors_properWordsWeightVectorInitialization_OverlappingWords(){
+    void initVectors_properWordsWeightVectorInitialization_OverlappingWords() {
 
         List<Document> testDocuments = new ArrayList<>();
 
@@ -87,20 +87,20 @@ public class LinkCalculatorTest{
 
         linkCalculator().initVectors(testDocuments);
 
-        Assert.assertEquals(testDoc1.getWordWeightVector().keySet().size(), 20);
+        Assertions.assertEquals(testDoc1.getWordWeightVector().keySet().size(), 20);
 
-        for(String w: testDoc1.getBagOfWords()){
-            Assert.assertTrue(testDoc1.getWordWeightVector().containsKey(w.hashCode()));
+        for (String w : testDoc1.getBagOfWords()) {
+            Assertions.assertTrue(testDoc1.getWordWeightVector().containsKey(w.hashCode()));
         }
 
-        Assert.assertEquals(testDoc1.getWordWeightVector(), testDoc2.getWordWeightVector());
-        Assert.assertEquals(testDoc2.getWordWeightVector(), testDoc3.getWordWeightVector());
-        Assert.assertEquals(testDoc3.getWordWeightVector(), testDoc1.getWordWeightVector());
+        Assertions.assertEquals(testDoc1.getWordWeightVector(), testDoc2.getWordWeightVector());
+        Assertions.assertEquals(testDoc2.getWordWeightVector(), testDoc3.getWordWeightVector());
+        Assertions.assertEquals(testDoc3.getWordWeightVector(), testDoc1.getWordWeightVector());
 
     }
 
     @Test
-    public void initVectors_properVerbObjectWeightVectorInitialisation_OverlappinPhrases(){
+    void initVectors_properVerbObjectWeightVectorInitialisation_OverlappinPhrases() {
 
         List<Document> testDocuments = new ArrayList<>();
 
@@ -118,20 +118,20 @@ public class LinkCalculatorTest{
 
         linkCalculator().initVectors(testDocuments);
 
-        Assert.assertEquals(testDoc1.getVerbObjectWeightVector().keySet().size(), 20);
+        Assertions.assertEquals(testDoc1.getVerbObjectWeightVector().keySet().size(), 20);
 
-        for(String vop: testDoc1.getBagOfWords()){
-            Assert.assertTrue(testDoc1.getVerbObjectWeightVector().containsKey(vop.hashCode()));
+        for (String vop : testDoc1.getBagOfWords()) {
+            Assertions.assertTrue(testDoc1.getVerbObjectWeightVector().containsKey(vop.hashCode()));
         }
 
-        Assert.assertEquals(testDoc1.getVerbObjectWeightVector(), testDoc2.getVerbObjectWeightVector());
-        Assert.assertEquals(testDoc2.getVerbObjectWeightVector(), testDoc3.getVerbObjectWeightVector());
-        Assert.assertEquals(testDoc3.getVerbObjectWeightVector(), testDoc1.getVerbObjectWeightVector());
+        Assertions.assertEquals(testDoc1.getVerbObjectWeightVector(), testDoc2.getVerbObjectWeightVector());
+        Assertions.assertEquals(testDoc2.getVerbObjectWeightVector(), testDoc3.getVerbObjectWeightVector());
+        Assertions.assertEquals(testDoc3.getVerbObjectWeightVector(), testDoc1.getVerbObjectWeightVector());
 
     }
 
     @Test
-    public void initVectors_properVerbObjectWeightVectorInitialisation_DistinctPhrases(){
+    void initVectors_properVerbObjectWeightVectorInitialisation_DistinctPhrases() {
 
         List<Document> testDocuments = new ArrayList<>();
 
@@ -149,20 +149,20 @@ public class LinkCalculatorTest{
 
         linkCalculator().initVectors(testDocuments);
 
-        Assert.assertEquals(testDoc1.getVerbObjectWeightVector().keySet().size(), 30);
+        Assertions.assertEquals(testDoc1.getVerbObjectWeightVector().keySet().size(), 30);
 
-        for(String vop: testDoc1.getBagOfWords()){
-            Assert.assertTrue(testDoc1.getVerbObjectWeightVector().containsKey(vop.hashCode()));
+        for (String vop : testDoc1.getBagOfWords()) {
+            Assertions.assertTrue(testDoc1.getVerbObjectWeightVector().containsKey(vop.hashCode()));
         }
 
-        Assert.assertEquals(testDoc1.getVerbObjectWeightVector(), testDoc2.getVerbObjectWeightVector());
-        Assert.assertEquals(testDoc2.getVerbObjectWeightVector(), testDoc3.getVerbObjectWeightVector());
-        Assert.assertEquals(testDoc3.getVerbObjectWeightVector(), testDoc1.getVerbObjectWeightVector());
+        Assertions.assertEquals(testDoc1.getVerbObjectWeightVector(), testDoc2.getVerbObjectWeightVector());
+        Assertions.assertEquals(testDoc2.getVerbObjectWeightVector(), testDoc3.getVerbObjectWeightVector());
+        Assertions.assertEquals(testDoc3.getVerbObjectWeightVector(), testDoc1.getVerbObjectWeightVector());
 
     }
 
     @Test
-    public void buildRelationGraph_properEdgeAdding(){
+    void buildRelationGraph_properEdgeAdding() {
 
         List<ModelEntityDocument> testDocuments = new ArrayList<>();
 
@@ -175,19 +175,18 @@ public class LinkCalculatorTest{
         ModelEntityDocument testEntity3 = new ModelEntityDocument("testEntity3", "testEntity3", "3");
         testDocuments.add(testEntity3);
 
-
         testEntity1.addReferencedEntityId("2");
         testEntity2.addReferencedEntityId("3");
 
         RelationGraph graph = linkCalculator().buildRelationGraph(testDocuments);
 
-        Assert.assertTrue(graph.hasEdge(testEntity1, testEntity2));
-        Assert.assertTrue(graph.hasEdge(testEntity2, testEntity3));
+        Assertions.assertTrue(graph.hasEdge(testEntity1, testEntity2));
+        Assertions.assertTrue(graph.hasEdge(testEntity2, testEntity3));
 
     }
 
     @Test
-    public void buildRelationGraph_noDuplicatedEdges(){
+    void buildRelationGraph_noDuplicatedEdges() {
 
         List<ModelEntityDocument> testDocuments = new ArrayList<>();
 
@@ -200,19 +199,14 @@ public class LinkCalculatorTest{
         ModelEntityDocument testEntity3 = new ModelEntityDocument("testEntity3", "testEntity3", "3");
         testDocuments.add(testEntity3);
 
-
         testEntity1.addReferencedEntityId("2");
         testEntity2.addReferencedEntityId("3");
         testEntity2.addReferencedEntityId("3");
 
         RelationGraph graph = linkCalculator().buildRelationGraph(testDocuments);
 
-        Assert.assertEquals(graph.getRelatedDocuments(testEntity2).size(), 1);
+        Assertions.assertEquals(graph.getRelatedDocuments(testEntity2).size(), 1);
 
     }
-
-
-
-
 
 }

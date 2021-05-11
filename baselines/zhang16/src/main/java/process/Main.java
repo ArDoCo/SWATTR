@@ -9,6 +9,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
+import org.reflections.Reflections;
+import org.reflections.scanners.ResourcesScanner;
+
 import entity.Document;
 import entity.ModelEntityDocument;
 import entity.TraceLink;
@@ -19,7 +23,6 @@ public class Main {
 
     protected static final double[] THRESHOLDS = { 0.03, 0.025, 0.02, 0.01, 0.005 };
     private static final double DELTA = 0.25;
-    private static final String WORDNET_DATABASE_DICT = "src/main/resources/wordnet-database/dict";
     private static final String RESULT_SAVE_PATH = "./output/";
 
     public static void runAndSave(String repoFilePath, String docuFilePath, File wordnetDict) {
@@ -110,12 +113,33 @@ public class Main {
 
         System.out.println("Initializing...");
 
-        File wordnetDatabaseDict = new File(WORDNET_DATABASE_DICT);
+        File wordnetDatabaseDict = copyData();
         if (!wordnetDatabaseDict.exists()) {
             System.out.println("Dictionary firectory does not exist: " + wordnetDatabaseDict.getAbsolutePath());
             return;
         }
 
         runAndSave(repoFilePath, docuFilePath, wordnetDatabaseDict);
+    }
+
+    private static File copyData() {
+        Object loader = new Object() {
+        };
+        File tmp = new File(System.getProperty("java.io.tmpdir"));
+        File target = new File(tmp + File.separator + "swattr-zhang16-data");
+        target.mkdirs();
+        final String base = "wordnet-database/dict";
+        Set<String> files = new Reflections(base, new ResourcesScanner()).getResources(p -> true);
+        try {
+            for (String file : files) {
+                String path = file.substring(base.length());
+                FileUtils.copyURLToFile(loader.getClass().getResource("/" + file), new File(target + path));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        System.out.println("Copied files to " + target.getAbsolutePath());
+        return target;
     }
 }
