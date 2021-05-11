@@ -37,15 +37,15 @@ jobs:
       working-directory: reproduction
       run: mkdir -p output && java --illegal-access=permit -jar ../baselines/zhang16/target/zhang16.jar "../case_studies/${{ matrix.text }}" "../case_studies/${{ matrix.model }}" 
       
-    - name: Compressing Results
+    - name: Renaming Results
       working-directory: reproduction
-      run: tar -czf "zhang16_results_${{ matrix.case_study }}.tgz" output
+      run: mv output "zhang16_results_${{ matrix.case_study }}"
     
     - name: Save Results
       uses: actions/upload-artifact@v2
       with:
-        name: "zhang16_results_${{ matrix.case_study }}.tgz"
-        path: "reproduction/zhang16_results_${{ matrix.case_study }}.tgz"
+        name: "zhang16_results_${{ matrix.case_study }}"
+        path: "reproduction/zhang16_results_${{ matrix.case_study }}"
     
     
   aggregate:

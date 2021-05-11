@@ -1,5 +1,5 @@
 #!/bin/bash
-ls -l
+find .
 
 mkdir results
 
@@ -12,4 +12,4 @@ python ../eval/eval.py -g ../case_studies/teammates/gold_standard/Goldstandard_T
 echo "Evaluation TeaStore"
 python ../eval/eval.py -g ../case_studies/teastore/gold_standards/Eval_Ecsa_TeaStore.csv -t ./TS -o results/eval_results_TS.csv
 
-ls -l
+find .
