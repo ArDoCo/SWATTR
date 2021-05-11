@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        similarity: [50, 75, 100]
+        similarity: [50, 75, 80, 100]
         case_study: [TS, TM, MS]
         include:
           - case_study: TS
@@ -26,6 +26,8 @@ jobs:
             sim_score: 0.5
           - similarity: 75
             sim_score: 0.75
+          - similarity: 80
+            sim_score: 0.80
           - similarity: 100
             sim_score: 1            
             
