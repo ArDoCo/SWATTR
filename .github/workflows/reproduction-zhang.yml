@@ -44,7 +44,7 @@ jobs:
     - name: Save Results
       uses: actions/upload-artifact@v2
       with:
-        name: "rodriguez20_results_${{ matrix.case_study }}.tgz"
-        path: "reproduction/rodriguez20_results_${{ matrix.case_study }}.tgz"
+        name: "zhang16_results_${{ matrix.case_study }}.tgz"
+        path: "reproduction/zhang16_results_${{ matrix.case_study }}.tgz"
     
     
