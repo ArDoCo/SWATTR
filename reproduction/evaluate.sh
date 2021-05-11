@@ -9,11 +9,11 @@ then
 fi
 
 ## Check bc support
-if ! command -v bc &> /dev/null
-then
-    echo "bc could not be found"
-    exit 1
-fi
+#if ! command -v bc &> /dev/null
+#then
+#    echo "bc could not be found"
+#    exit 1
+#fi
 
 
 ## Check Docker support
