@@ -9,7 +9,7 @@ If you're on Windows and you need to convert every bash file in unix format. For
 ## 1. Compile SWATTR
 You have multiple options to compile SWATTR
 
-1. You can use the compiled version of SWATTR that is stored in the referenced Zenodo.
+1. You can use the compiled version of SWATTR that is stored in the referenced [Zenodo](https://doi.org/10.5281/zenodo.4730621).
 2. You can execute `mvn clean package` in `../swattr_core` and obtain the bundle (location after build: `../swattr_core/pipeline/target/ardoco-core-pipeline.jar` (you may have to setup github credentials to access the compiled maven packages (dependencies))
 3. If you have docker you can simply run `bash compile.sh` to build SWATTR from sources (on Windows you have to use the Linux Subsystem (WSL2)).
 
