@@ -1,5 +1,5 @@
 # SoftWare Architecture Text Tracelink Recovery (SWATTR)
-[![DOI](https://zenodo.org/badge/359732572.svg)](https://zenodo.org/badge/latestdoi/359732572)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4730621.svg)](https://doi.org/10.5281/zenodo.4730621)
 [![SWATTR Reproduction](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction.yml/badge.svg)](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction.yml)
 [![Rodriguez20 Reproduction](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction-rodriguez.yml/badge.svg)](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction-rodriguez.yml)
 [![Zhang16 Reproduction](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction-zhang.yml/badge.svg)](https://github.com/ArDoCo/SWATTR/actions/workflows/reproduction-zhang.yml)
