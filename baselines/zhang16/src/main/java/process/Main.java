@@ -127,6 +127,7 @@ public class Main {
         };
         File tmp = new File(System.getProperty("java.io.tmpdir"));
         File target = new File(tmp + File.separator + "swattr-zhang16-data");
+        if (target.exists()) return target;
         target.mkdirs();
         final String base = "wordnet-database/dict";
         Set<String> files = new Reflections(base, new ResourcesScanner()).getResources(p -> true);
